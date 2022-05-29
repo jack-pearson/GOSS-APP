@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:35
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-05-27 17:55:30
+ * @LastEditTime: 2022-05-29 13:36:29
  * @FilePath: \GOSS-APP\src\router\index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -46,12 +46,12 @@ const Router = () => {
 };
 
 const mapStateToProps = ({ user }) => ({
-  userInfo: user.userInfo,
+  user: user,
 });
 
 const mapDispatchToProps = (dispatch: (arg0: any) => void) => ({
-  setUserInfo(userInfo: any) {
-    dispatch(setUser(userInfo));
+  setUser(user) {
+    dispatch(setUser(user));
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Router);
