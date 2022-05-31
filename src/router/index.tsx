@@ -2,20 +2,21 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:35
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-05-30 22:17:42
+ * @LastEditTime: 2022-05-31 14:38:24
  * @FilePath: \GOSS-APP\src\router\index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React from "react";
 import "react-native-gesture-handler";
 import { connect } from "react-redux";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Pages from "./importPage";
 import { SET_USER } from "@/constants/user";
-import { StatusBar } from "react-native";
+import { StatusBar, Text } from "react-native";
+import { getIconCode, IIconConfig } from "@/utils/icon";
+import { CustomIcons } from "@/components";
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 const Router = () => {
@@ -64,6 +65,7 @@ const Router = () => {
     </>
   );
 };
+
 const TabsScreen = () => {
   return (
     <Tabs.Navigator
@@ -73,19 +75,19 @@ const TabsScreen = () => {
             let iconName;
             switch (route.name) {
               case "Home":
-                iconName = focused ? "home" : "home";
+                iconName = focused ? "home-fill" : "home";
                 break;
               case "Knowledge":
-                iconName = focused ? "home" : "home";
+                iconName = focused ? "Knowledge-fill" : "Knowledge";
                 break;
               case "Consult":
-                iconName = focused ? "home" : "home";
+                iconName = focused ? "consult-fill" : "consult";
                 break;
               case "Mine":
-                iconName = focused ? "home" : "home";
+                iconName = focused ? "mine-fill" : "mine";
                 break;
             }
-            return <Icon name={iconName} size={size} color={color} />;
+            return CustomIcons(iconName, color, size);
           },
           headerTitleAlign: "center",
         };
