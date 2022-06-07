@@ -2,12 +2,14 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-30 21:55:01
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-02 21:25:27
+ * @LastEditTime: 2022-06-07 15:43:02
  * @FilePath: \GOSS-APP\src\pages\tabs\home.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import React, { useEffect } from "react";
-import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
+import FocusAwareStatusBar from "@/components/focusAwareStatusBar";
+import React from "react";
+import { FlatList, StyleSheet, Text, View, StatusBar } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomePage = () => {
   const DATA = [
@@ -57,7 +59,6 @@ const HomePage = () => {
       title: "咨询投诉",
     },
   ];
-  console.log("123");
   const renderItem = ({ item, index, separators }) => {
     const s = StyleSheet.create({
       itemStyle: {
@@ -78,8 +79,8 @@ const HomePage = () => {
     );
   };
   return (
-    <View style={{ flex: 1, backgroundColor: "#fff" }}>
-      <StatusBar barStyle='dark-content' translucent={false} backgroundColor={global.primaryColor} />
+    <SafeAreaView edges={["right", "left", "top"]} style={{ flex: 1, backgroundColor: global.primaryColor }}>
+      <FocusAwareStatusBar barStyle='light-content' backgroundColor={global.primaryColor} />
       <View style={styles.headerView}>
         <View style={styles.userView}>
           <View style={styles.userLeft}>
@@ -90,8 +91,10 @@ const HomePage = () => {
           </View>
         </View>
       </View>
-      <FlatList contentContainerStyle={styles.flatListVIew} data={DATA} numColumns={3} renderItem={renderItem} keyExtractor={item => item.title}></FlatList>
-    </View>
+      <View style={{ flex: 1, backgroundColor: "#fff" }}>
+        <FlatList contentContainerStyle={styles.flatListVIew} data={DATA} numColumns={3} renderItem={renderItem} keyExtractor={item => item.title}></FlatList>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -113,6 +116,7 @@ const styles = StyleSheet.create({
   userLeft: {
     flex: 1,
   },
+  container: { flex: 1 },
   userRight: {
     width: 100,
   },

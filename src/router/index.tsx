@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:35
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-02 15:46:19
+ * @LastEditTime: 2022-06-07 15:42:03
  * @FilePath: \GOSS-APP\src\router\index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,15 +14,14 @@ import { createStackNavigator, TransitionPresets } from "@react-navigation/stack
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Pages from "./importPage";
 import { SET_USER } from "@/constants/user";
-import { StatusBar, Text } from "react-native";
-import { getIconCode, IIconConfig } from "@/utils/icon";
 import { CustomIcons } from "@/components";
+import { StatusBar } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 const Router = () => {
   return (
     <>
-      <StatusBar barStyle='dark-content' translucent={false} backgroundColor={"white"} />
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={({ route }) => {
