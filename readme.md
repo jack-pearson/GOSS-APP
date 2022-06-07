@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-26 14:10:56
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-07 17:09:24
+ * @LastEditTime: 2022-06-07 17:54:40
  * @FilePath: \GOSS-APP\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -39,4 +39,16 @@ react-native-vector-icons // 图标库
 `android <https://www.fly63.com/article/detial/9842>`
 `ios <https://www.jianshu.com/p/65c6e7bc15a5>`ttf 文件就从 android 中使用.
 
+## 修改 app 名称
+
+ios 再 info.plist 中修改
+
+## 修改 app 图标
+
+`根据图片一键生成对应格式 https://icon.wuruihong.com/`
+ios 通过 xcode 修改.
+
 ## 未做
+
+[ ] 修改 android app 名称
+[ ] 修改 android app 图标
