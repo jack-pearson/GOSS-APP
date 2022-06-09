@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:11
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-09 19:12:42
+ * @LastEditTime: 2022-06-09 19:15:09
  * @FilePath: \GOSS-APP\src\pages\login.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,8 +27,10 @@ const LoginPage = ({ user, setUser, removeUser }) => {
   const [passwordErrorMessage, setPasswordErrorMessage] = useErrorMessage();
   const [userInput, setUserInput] = useState<IUserInput>({ account: "", password: "" });
   const [passwordInputType, setPasswordInputType] = useState<string>("password");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   /** login 登录方法 */
   const login = async () => {
+    setIsLoading(true);
     try {
       const user = await Login(userInput);
       setUser(user);
@@ -38,6 +40,7 @@ const LoginPage = ({ user, setUser, removeUser }) => {
       });
     } catch (error) {
       setUserInput({ account: "", password: "" });
+      setIsLoading(false);
     }
   };
   /** 切换眼睛 */
@@ -78,7 +81,7 @@ const LoginPage = ({ user, setUser, removeUser }) => {
         />
       </View>
       <View>
-        <Button type='solid' title='登陆' onPress={login} disabled={userInput.password && userInput.account ? false : true}></Button>
+        <Button type='solid' title='登陆' loading={isLoading} onPress={login} disabled={userInput.password && userInput.account ? false : true}></Button>
       </View>
     </SafeAreaView>
   );
