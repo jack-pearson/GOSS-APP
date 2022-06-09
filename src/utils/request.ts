@@ -1,17 +1,18 @@
 /*
  * @Author: jack-pearson
  * @Date: 2021-11-23 15:16:14
- * @LastEditTime: 2022-06-08 15:28:24
+ * @LastEditTime: 2022-06-09 17:59:58
  * @LastEditors: jack-pearson qize953463876@gmail.com
  * @FilePath: /vue3-element-admin/src/utils/request/index.ts
  * @Description:  https://github.com/jack-pearson/vue3-element-admin
  */
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import { Alert } from "react-native";
 import ENV from "@/env";
 export interface HttpGlobalResponse<T = any> {
-  code: number;
-  success: boolean;
-  message: string;
+  resultCode: number;
+  success?: boolean;
+  message?: string;
   data: T;
 }
 const showStatus = (status: number) => {
@@ -79,13 +80,17 @@ instance.interceptors.request.use(
 
 /** 响应拦截器 */
 instance.interceptors.response.use(
-  (response: AxiosResponse) => {
-    // if (response.data.code === 500) {
-    //   return Promise.reject(response);
-    // }
-    return response;
+  (response: AxiosResponse<HttpGlobalResponse>) => {
+    const { data } = response;
+    if (data.resultCode === 0) {
+      return response.data;
+    } else {
+      Alert.alert("提示", data.message);
+      return Promise.reject(response);
+    }
   },
   error => {
+    Alert.alert("提示", "网络错误");
     const { config, response } = error;
     return Promise.reject(error);
   }
@@ -93,5 +98,6 @@ instance.interceptors.response.use(
 
 export const request = async <T = any>(config: AxiosRequestConfig): Promise<HttpGlobalResponse<T>> => {
   const { data } = await instance.request<HttpGlobalResponse<T>>(config);
+  console.log(data, "data");
   return data;
 };
