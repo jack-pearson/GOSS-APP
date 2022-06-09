@@ -16,6 +16,7 @@
     "@react-navigation/stack": "^6.2.1",
     "@redux-devtools/extension": "^3.2.2",
     "@types/redux-logger": "^3.0.9",
+    "axios": "^0.27.2",
     "babel-plugin-root-import": "^6.6.0",
     "jetifier": "^2.0.0",
     "react": "17.0.2",

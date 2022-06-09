@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-26 14:10:56
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-07 17:54:40
+ * @LastEditTime: 2022-06-08 13:34:12
  * @FilePath: \GOSS-APP\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -33,6 +33,9 @@ jetifier // 不用这个会报错
 
 react-native-elements // UI 库
 react-native-vector-icons // 图标库
+
+axios // 请求库
+react-native-dotenv // env 环境
 
 ## 自定义图标
 
