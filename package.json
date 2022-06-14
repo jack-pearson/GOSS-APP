@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android --no-jetifier",
     "ios": "react-native run-ios",
+    "android:prod": "ENVFILE=.env.production react-native run-android --no-jetifier",
     "ios:prod": "ENVFILE=.env.production react-native run-ios",
     "start": "react-native start",
     "test": "jest",
