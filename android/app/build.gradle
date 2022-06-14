@@ -3,7 +3,7 @@ project.ext.vectoricons = [
     iconFontNames: ['FontAwesome.ttf']
 ]
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
-
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
@@ -142,8 +142,8 @@ android {
         applicationId "com.awesometsproject"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode project.env.get('VERSION_CODE').toInteger()
+        versionName project.env.get('VERSION_NAME')
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {

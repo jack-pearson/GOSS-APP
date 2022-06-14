@@ -1,14 +1,14 @@
 /*
  * @Author: jack-pearson
  * @Date: 2021-11-23 15:16:14
- * @LastEditTime: 2022-06-09 17:59:58
+ * @LastEditTime: 2022-06-14 13:16:39
  * @LastEditors: jack-pearson qize953463876@gmail.com
  * @FilePath: /vue3-element-admin/src/utils/request/index.ts
  * @Description:  https://github.com/jack-pearson/vue3-element-admin
  */
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { Alert } from "react-native";
-import ENV from "@/env";
+import Config from "react-native-config";
 export interface HttpGlobalResponse<T = any> {
   resultCode: number;
   success?: boolean;
@@ -64,7 +64,7 @@ const instance = axios.create({
     "Access-Control-Allow-Origin": "*",
   },
   timeout: TIME_OUT,
-  baseURL: ENV.APP_BASE_URL,
+  baseURL: Config.APP_BASE_URL,
   withCredentials: false,
 });
 
