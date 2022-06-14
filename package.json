@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android --no-jetifier",
+    "android": "react-native run-android",
+    "android:dev": "set ENVFILE=.env.development && react-native run-android",
+    "android:prod": "ENVFILE=.env.production react-native run-android",
     "ios": "react-native run-ios",
-    "android:prod": "ENVFILE=.env.production react-native run-android --no-jetifier",
+    "ios:dev": "ENVFILE=.env.development react-native run-ios",
     "ios:prod": "ENVFILE=.env.production react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "postinstall": "npx jetify"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
