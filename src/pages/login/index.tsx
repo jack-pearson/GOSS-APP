@@ -2,12 +2,12 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:11
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-16 14:48:29
+ * @LastEditTime: 2022-06-16 14:49:39
  * @FilePath: \GOSS-APP\src\pages\login.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import React, { createRef, useEffect, useState } from "react";
-import { Text, View, StyleSheet, TextInput } from "react-native";
+import React, { useState } from "react";
+import { Text, View, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { Button, Input } from "react-native-elements";
@@ -15,8 +15,6 @@ import { REMOVE_USER, SET_USER } from "@/constants/user";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import axios from "axios";
-import { request } from "@/utils/request";
 import { IUserInput, Login } from "@/apis/login";
 import { useErrorMessage } from "./useErrorMessage";
 
@@ -44,8 +42,6 @@ const LoginPage = ({ user, setUser, removeUser }) => {
       setIsLoading(false);
     }
   };
-  /** 切换眼睛 */
-  const changeEye = () => {};
   return (
     <SafeAreaView style={styles.loginPage}>
       <View style={styles.loginTextView}>
