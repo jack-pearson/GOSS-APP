@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-26 14:10:56
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-08 13:34:12
+ * @LastEditTime: 2022-06-17 14:10:22
  * @FilePath: \GOSS-APP\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -51,7 +51,16 @@ ios 再 info.plist 中修改
 `根据图片一键生成对应格式 https://icon.wuruihong.com/`
 ios 通过 xcode 修改.
 
-## 未做
+## 启动屏幕
 
-[ ] 修改 android app 名称
-[ ] 修改 android app 图标
+`https://www.cnblogs.com/zhengyan/p/15791391.html`
+`https://www.jianshu.com/p/56562e5a9396`
+
+## 安卓打包
+
+`https://reactnative.cn/docs/signed-apk-android`
+
+## 安卓设置 apk 安装时权限列表
+
+`https://reactnative.dev/docs/permissionsandroid#permissions-that-require-prompting-the-user` 代码中还是要再这边获取
+`https://blog.csdn.net/qq_28837549/article/details/114286332` 写在这里面
