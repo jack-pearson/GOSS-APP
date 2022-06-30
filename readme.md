@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-26 14:10:56
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-17 14:10:22
+ * @LastEditTime: 2022-06-30 16:21:22
  * @FilePath: \GOSS-APP\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -64,3 +64,15 @@ ios 通过 xcode 修改.
 
 `https://reactnative.dev/docs/permissionsandroid#permissions-that-require-prompting-the-user` 代码中还是要再这边获取
 `https://blog.csdn.net/qq_28837549/article/details/114286332` 写在这里面
+
+## 问题
+
+2022 年 06 月 30 日 16:09:09
+
+1. 首页顶部个人这个不建议要. 换一种展现方式和内容吧.
+2. 生产制造一览 中, 图片是有的么? 需要确认
+3. 所有的子页面的状态栏和 title 颜色需要一致.
+4. 生产制造详细 里面的备件申请单号, 做成列表吧, 别作成下拉了.不然交互有点奇怪
+5. 知识库搜索需要单独做一个页面的.
+6. 知识库 搜索和下面的颜色不匹配, 看起来很怪.
+7. 生产制造详细 里面, 生产内容旁边的图片 是从哪来的.
