@@ -2,15 +2,17 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-06-30 13:55:21
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-30 15:54:57
+ * @LastEditTime: 2022-06-30 15:59:51
  * @FilePath: /GOSS-APP/src/pages/home/production/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { CommonActions, useNavigation } from "@react-navigation/native";
 
 export const ProductionView = () => {
+  const navigation = useNavigation();
   const DATA = [
     {
       title: "整机-1",
@@ -24,8 +26,15 @@ export const ProductionView = () => {
     },
   ];
   const renderItem = ({ item, index, separators }) => {
+    const onHandlePress = () => {
+      navigation.dispatch(
+        CommonActions.navigate({
+          name: "ProductionDetails",
+        })
+      );
+    };
     return (
-      <TouchableOpacity onPress={() => console.log(index)}>
+      <TouchableOpacity onPress={onHandlePress}>
         <View style={styles.flatListViewItem}>
           <View style={styles.flatListViewItemLeft}>
             <Text style={{ fontSize: 16, fontWeight: "600", color: "#111" }}>{item.title}</Text>
