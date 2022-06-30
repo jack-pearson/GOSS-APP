@@ -2,15 +2,15 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-30 21:55:01
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-14 15:00:20
+ * @LastEditTime: 2022-06-29 11:23:28
  * @FilePath: \GOSS-APP\src\pages\tabs\home.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import FocusAwareStatusBar from "@/components/focusAwareStatusBar";
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { connect } from "react-redux";
+import { FocusAwareStatusBar } from "@/components";
 
 const HomePage = ({ user }) => {
   // console.log(user);
@@ -102,10 +102,8 @@ const HomePage = ({ user }) => {
 
 const styles = StyleSheet.create({
   headerView: {
-    backgroundColor: global.primaryColor,
+    backgroundColor: "#4b9af3",
     height: 200,
-    borderTopWidth: 1,
-    borderTopColor: "red",
     paddingHorizontal: 20,
   },
   userView: {
