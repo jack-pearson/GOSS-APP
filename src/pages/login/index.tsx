@@ -2,19 +2,19 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:11
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-29 11:09:27
+ * @LastEditTime: 2022-06-30 15:53:57
  * @FilePath: \GOSS-APP\src\pages\login.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { connect } from "react-redux";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 import { Button, Input } from "react-native-elements";
-import { REMOVE_USER, SET_USER } from "@/constants/user";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { REMOVE_USER, SET_USER } from "@/constants/user";
 import { IUserInput, Login } from "@/apis/login";
 import { useErrorMessage } from "./useErrorMessage";
 
@@ -30,14 +30,15 @@ const LoginPage = ({ user, setUser, removeUser }) => {
   const login = async () => {
     if (isLoading) return;
     setIsLoading(true);
-
     try {
       // const user = await Login(userInput);
       // setUser(user);
-      navigation.reset({
-        index: 0,
-        routes: [{ name: "HomePage" }],
-      });
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: "HomePage" }],
+        })
+      );
     } catch (error) {
       setUserInput({ account: "", password: "" });
       setIsLoading(false);
