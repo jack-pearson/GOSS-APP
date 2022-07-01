@@ -2,19 +2,18 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-30 21:55:01
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-07-01 17:20:05
+ * @LastEditTime: 2022-07-01 18:42:24
  * @FilePath: \GOSS-APP\src\pages\tabs\home.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React from "react";
 import { FlatList, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { connect } from "react-redux";
 import { FocusAwareStatusBar } from "@/components";
 import { DATA, IDateItem } from "./mock";
 import { CommonActions, useNavigation } from "@react-navigation/native";
 
-const HomePage = ({ user }) => {
+const HomePage = () => {
   const navigation = useNavigation();
   const renderItem = ({ item, index, separators }: { item: IDateItem; [key: string]: any }) => {
     const onHandlePress = () => {
@@ -59,7 +58,4 @@ const styles = StyleSheet.create({
   flatListVIew: { height: 300, justifyContent: "space-between" },
   cardItem: { flex: 1, height: 100, alignItems: "center", justifyContent: "center", borderColor: "#F2F2F2", borderWidth: 1, borderRightWidth: 0, borderBottomWidth: 0 },
 });
-const mapStateToProps = ({ user }) => ({
-  user: user,
-});
-export default connect(mapStateToProps)(HomePage);
+export default HomePage;

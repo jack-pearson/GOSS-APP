@@ -2,23 +2,22 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:11
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-07-01 17:19:49
+ * @LastEditTime: 2022-07-01 18:40:40
  * @FilePath: \GOSS-APP\src\pages\login.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import { connect } from "react-redux";
 import { useNavigation, CommonActions } from "@react-navigation/native";
 import { Button, Input } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { REMOVE_USER, SET_USER } from "@/constants/user";
 import { IUserInput, Login } from "@/apis/login";
 import { useErrorMessage } from "./useErrorMessage";
+import { inject, observer } from "mobx-react";
 
-const LoginPage = ({ user, setUser, removeUser }) => {
+const LoginPage = observer(({ user }) => {
   const navigation = useNavigation();
   const primary = global.primaryColor;
   const [accountErrorMessage, setAccountErrorMessage] = useErrorMessage();
@@ -84,7 +83,7 @@ const LoginPage = ({ user, setUser, removeUser }) => {
       </View>
     </SafeAreaView>
   );
-};
+});
 
 const styles = StyleSheet.create({
   loginPage: { flex: 1, paddingLeft: 30, paddingRight: 30, paddingTop: 68 },
@@ -93,16 +92,4 @@ const styles = StyleSheet.create({
   form: { height: 300, justifyContent: "center", alignItems: "center" },
 });
 
-const mapStateToProps = ({ user }) => ({
-  user,
-});
-
-const mapDispatchToProps = dispatch => ({
-  setUser(user) {
-    dispatch({ type: SET_USER, user });
-  },
-  removeUser() {
-    dispatch({ type: REMOVE_USER });
-  },
-});
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default inject("user")(LoginPage);

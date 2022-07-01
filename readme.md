@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-26 14:10:56
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-30 16:21:22
+ * @LastEditTime: 2022-07-01 18:48:27
  * @FilePath: \GOSS-APP\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -20,11 +20,8 @@ react-native + typescript
 @react-navigation/bottom-tabs
 react-native-screens
 react-native-safe-area-context
-redux
-react-redux
-redux-devtools
-redux-logger
-redux-thunk
+
+mobx 状态管理换这个
 
 babel-plugin-root-import // 路径别名
 @react-native-community/async-storage // 本地缓存
