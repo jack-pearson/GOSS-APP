@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:35
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-30 16:06:02
+ * @LastEditTime: 2022-07-01 13:47:51
  * @FilePath: \GOSS-APP\src\router\index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -62,6 +62,13 @@ const Router = () => {
             }}
             name='ProductionDetails'
             component={Pages.ProductionDetails}
+          />
+          <Stack.Screen
+            options={() => {
+              return { headerShown: true, title: "安装施工·一览", headerStyle: { backgroundColor: global.primaryColor }, headerTintColor: "#fff" };
+            }}
+            name='InstallationView'
+            component={Pages.InstallationView}
           />
         </Stack.Navigator>
       </NavigationContainer>

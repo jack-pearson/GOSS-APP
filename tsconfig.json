@@ -5,6 +5,7 @@
     "lib": [
       "es2017"
     ],
+    "experimentalDecorators": true,
     "jsx": "react-native",
     "module": "commonjs",
     "moduleResolution": "node", /* Specify how TypeScript looks up a file from a given module specifier. */
