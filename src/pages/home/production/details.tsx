@@ -2,15 +2,59 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-06-30 13:55:21
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-30 18:27:03
+ * @LastEditTime: 2022-07-01 17:19:00
  * @FilePath: /GOSS-APP/src/pages/home/production/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React from "react";
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Button, Image } from "react-native-elements";
 
 export const ProductionDetails = () => {
+  const renderItem = ({ item, index }) => {
+    return (
+      <View style={styles.flatListViewItem} key={item.title}>
+        <Text>{item.title}</Text>
+      </View>
+    );
+  };
+  const DATA = [
+    {
+      status: "done",
+      id: 1,
+      user: "系统管理员",
+      title: "创建订单",
+      time: "2016-07-12 12:40",
+    },
+    {
+      status: "done",
+      id: 2,
+      user: "用户A",
+      title: "订单审批",
+      time: "2016-07-12 12:40",
+    },
+    {
+      status: "run",
+      id: 3,
+      user: "系统管理员",
+      title: "投入生产",
+      time: "2016-07-12 12:40",
+    },
+    {
+      status: "run",
+      id: 4,
+      user: "系统管理员",
+      title: "投入生产1",
+      time: "2016-07-12 12:40",
+    },
+    {
+      status: "run",
+      id: 5,
+      user: "系统管理员",
+      title: "投入生产2",
+      time: "2016-07-12 12:40",
+    },
+  ];
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.top}>
@@ -32,12 +76,19 @@ export const ProductionDetails = () => {
           </View>
         </View>
         <View style={styles.imageViewButtons}>
-          <Button buttonStyle={styles.imageViewBtn} titleStyle={styles.imageViewBtnText} type='outline' title='备件赔偿'></Button>
-          <Button type='outline' buttonStyle={styles.imageViewBtn} titleStyle={styles.imageViewBtnText} title='报工'></Button>
+          <Button buttonStyle={styles.imageViewBtn} activeOpacity={1} titleStyle={styles.imageViewBtnText} type='outline' title='备件赔偿'></Button>
+          <Button type='outline' buttonStyle={styles.imageViewBtn} activeOpacity={1} titleStyle={styles.imageViewBtnText} title='报工'></Button>
         </View>
       </View>
       <View style={styles.spareParts}>
         <Text style={{ fontSize: 16, fontWeight: "500" }}>备件申请单号</Text>
+      </View>
+      <View style={styles.stepView}>
+        <ScrollView style={styles.flatListView} contentContainerStyle={{ flexGrow: 1 }} bounces={false} showsVerticalScrollIndicator={false}>
+          {DATA.map((item, index) => {
+            return renderItem({ item, index });
+          })}
+        </ScrollView>
       </View>
     </View>
   );
@@ -51,4 +102,7 @@ const styles = StyleSheet.create({
   imageViewBtn: { paddingHorizontal: 15, borderRadius: 30, borderColor: "#000", paddingVertical: 4 },
   imageViewBtnText: { fontSize: 14, color: "#000" },
   spareParts: { height: 30, flexDirection: "row", justifyContent: "flex-start", alignItems: "center", marginHorizontal: 15 },
+  stepView: { flex: 1, padding: 20, flexGrow: 1 },
+  flatListView: { flex: 1 },
+  flatListViewItem: { height: 120 },
 });

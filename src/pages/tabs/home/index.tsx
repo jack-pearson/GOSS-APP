@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-30 21:55:01
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-06-30 14:41:00
+ * @LastEditTime: 2022-07-01 17:20:05
  * @FilePath: \GOSS-APP\src\pages\tabs\home.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -23,7 +23,7 @@ const HomePage = ({ user }) => {
       }
     };
     return (
-      <TouchableOpacity onPress={onHandlePress} style={{ ...styles.cardItem, borderLeftWidth: [0, 3, 6].includes(index) ? 0 : 1 }}>
+      <TouchableOpacity activeOpacity={1} onPress={onHandlePress} style={{ ...styles.cardItem, borderLeftWidth: [0, 3, 6].includes(index) ? 0 : 1 }}>
         <View>
           <Text>{item.title}</Text>
         </View>
