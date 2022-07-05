@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-06-30 13:55:21
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-07-01 17:19:00
+ * @LastEditTime: 2022-07-05 13:54:31
  * @FilePath: /GOSS-APP/src/pages/home/production/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,9 +12,17 @@ import { Button, Image } from "react-native-elements";
 
 export const ProductionDetails = () => {
   const renderItem = ({ item, index }) => {
+    const len = DATA.length - 1;
     return (
       <View style={styles.flatListViewItem} key={item.title}>
-        <Text>{item.title}</Text>
+        <View style={styles.bgRound}>{len === index ? null : <View style={styles.bgRoundLine}></View>}</View>
+        <View style={{ flex: 1, height: 80, marginLeft: 10, justifyContent: "space-evenly", borderBottomWidth: 1, borderColor: "#ccc" }}>
+          <Text>{item.user}</Text>
+          <Text>{item.time}</Text>
+        </View>
+        <View style={{ width: 80, height: 80, justifyContent: "center", borderBottomWidth: 1, borderColor: "#ccc" }}>
+          <Text>{item.title}</Text>
+        </View>
       </View>
     );
   };
@@ -72,7 +80,7 @@ export const ProductionDetails = () => {
             height={undefined}></Image>
           <View style={{ flex: 1, paddingLeft: 10, justifyContent: "space-evenly" }}>
             <Text>整机-1</Text>
-            <Text>建单时间：2020-04-25 20:45</Text>
+            <Text>建单时间: 2020-04-25 20:45</Text>
           </View>
         </View>
         <View style={styles.imageViewButtons}>
@@ -104,5 +112,7 @@ const styles = StyleSheet.create({
   spareParts: { height: 30, flexDirection: "row", justifyContent: "flex-start", alignItems: "center", marginHorizontal: 15 },
   stepView: { flex: 1, padding: 20, flexGrow: 1 },
   flatListView: { flex: 1 },
-  flatListViewItem: { height: 120 },
+  flatListViewItem: { height: 80, flexDirection: "row", alignItems: "center" },
+  bgRound: { width: 20, height: 20, backgroundColor: "#ccc", borderRadius: 50, position: "relative" },
+  bgRoundLine: { position: "absolute", width: 1, height: 80, backgroundColor: "#ccc", left: 9.5, top: "50%" },
 });
