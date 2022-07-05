@@ -2,15 +2,17 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-06-30 13:55:21
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-07-05 13:54:31
+ * @LastEditTime: 2022-07-05 14:42:03
  * @FilePath: /GOSS-APP/src/pages/home/production/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
+import { CommonActions, useNavigation } from "@react-navigation/native";
 import React from "react";
-import { FlatList, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { Button, Image } from "react-native-elements";
 
 export const ProductionDetails = () => {
+  const navigation = useNavigation();
   const renderItem = ({ item, index }) => {
     const len = DATA.length - 1;
     return (
@@ -63,6 +65,13 @@ export const ProductionDetails = () => {
       time: "2016-07-12 12:40",
     },
   ];
+  const goToReport = () => {
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: "ProductionReport",
+      })
+    );
+  };
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.top}>
@@ -85,7 +94,7 @@ export const ProductionDetails = () => {
         </View>
         <View style={styles.imageViewButtons}>
           <Button buttonStyle={styles.imageViewBtn} activeOpacity={1} titleStyle={styles.imageViewBtnText} type='outline' title='备件赔偿'></Button>
-          <Button type='outline' buttonStyle={styles.imageViewBtn} activeOpacity={1} titleStyle={styles.imageViewBtnText} title='报工'></Button>
+          <Button type='outline' onPress={goToReport} buttonStyle={styles.imageViewBtn} activeOpacity={1} titleStyle={styles.imageViewBtnText} title='报工'></Button>
         </View>
       </View>
       <View style={styles.spareParts}>
