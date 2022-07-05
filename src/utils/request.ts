@@ -1,7 +1,7 @@
 /*
  * @Author: jack-pearson
  * @Date: 2021-11-23 15:16:14
- * @LastEditTime: 2022-06-14 15:52:26
+ * @LastEditTime: 2022-07-04 17:28:06
  * @LastEditors: jack-pearson qize953463876@gmail.com
  * @FilePath: /vue3-element-admin/src/utils/request/index.ts
  * @Description:  https://github.com/jack-pearson/vue3-element-admin
@@ -57,7 +57,6 @@ const showStatus = (status: number) => {
   return message;
 };
 const [TIME_OUT] = [10000];
-const pending: Map<any, any> = new Map();
 const instance = axios.create({
   headers: {
     "Content-Type": "application/json;charset=UTF-8",
@@ -98,6 +97,5 @@ instance.interceptors.response.use(
 
 export const request = async <T = any>(config: AxiosRequestConfig): Promise<HttpGlobalResponse<T>> => {
   const { data } = await instance.request<HttpGlobalResponse<T>>(config);
-  console.log(data, "data");
   return data;
 };

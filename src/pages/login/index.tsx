@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:11
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-07-01 18:40:40
+ * @LastEditTime: 2022-07-05 13:28:34
  * @FilePath: \GOSS-APP\src\pages\login.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,8 +16,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { IUserInput, Login } from "@/apis/login";
 import { useErrorMessage } from "./useErrorMessage";
 import { inject, observer } from "mobx-react";
+import { IPageViewProps } from "@/utils";
+import { IUser } from "@/store";
 
-const LoginPage = observer(({ user }) => {
+const LoginPage = observer(({ user }: IPageViewProps<{ user: IUser }>) => {
   const navigation = useNavigation();
   const primary = global.primaryColor;
   const [accountErrorMessage, setAccountErrorMessage] = useErrorMessage();
@@ -32,6 +34,7 @@ const LoginPage = observer(({ user }) => {
     try {
       // const user = await Login(userInput);
       // setUser(user);
+      user.setAge(22);
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
@@ -92,4 +95,4 @@ const styles = StyleSheet.create({
   form: { height: 300, justifyContent: "center", alignItems: "center" },
 });
 
-export default inject("user")(LoginPage);
+export default inject(store => store)(LoginPage);
