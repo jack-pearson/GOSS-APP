@@ -2,7 +2,7 @@
  * @Author: jack-pearson qize953463876@gmail.com
  * @Date: 2022-05-27 14:27:35
  * @LastEditors: jack-pearson qize953463876@gmail.com
- * @LastEditTime: 2022-07-05 14:39:34
+ * @LastEditTime: 2022-07-15 15:24:43
  * @FilePath: \GOSS-APP\src\router\index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,7 +13,6 @@ import { createStackNavigator, TransitionPresets } from "@react-navigation/stack
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Pages from "./importPage";
 import { CustomIcons } from "@/components";
-import { inject, observer } from "mobx-react";
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 const Router = () => {
